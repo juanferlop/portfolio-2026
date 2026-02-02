@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Download, Code2 } from 'lucide-react';
+import { Github, ExternalLink, Download } from 'lucide-react';
 
 interface Project {
     title: string;
