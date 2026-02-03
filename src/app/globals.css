@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Light / elegant palette (default) */
+  --bg: #ffffff; /* page background */
+  --surface: #ffffff; /* card surfaces */
+  --muted: #6b7280; /* gray for secondary text */
+  --fg: #0f1724; /* primary text (dark) */
+  --primary: #0ea5a4; /* teal accent */
+  --accent: #06b6d4; /* cyan accent */
+  --glass: rgba(2,6,23,0.03);
+  --card-shadow: 0 8px 24px rgba(15,23,42,0.06);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0f1724;
+    --surface: #0b1220;
+    --muted: #94a3b8;
+    --fg: #e6eef8;
+    --primary: #2563eb;
+    --accent: #06b6d4;
+    --glass: rgba(255,255,255,0.04);
+    --card-shadow: 0 8px 30px rgba(2,6,23,0.6);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Base styles */
+html, body, #__next {
+  height: 100%;
 }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent nav overlap by reserving space for fixed navbar */
+body { padding-top: 64px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), var(--font-inter), sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  body { font-size: 14px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 20px; }
+}
+
+/* Hero */
+.hero-title {
+  font-family: var(--font-space-grotesk);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 640px) {
+  .hero-title { font-size: 32px !important; line-height: 1.1; }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .hero-title { font-size: 44px !important; }
+}
+
+.muted { color: var(--muted); }
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary), var(--accent) 30%));
+  color: white;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--glass);
+}
+
+.project-image {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 160px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-card-body { padding: 16px; }
+
+.kicker { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-family: var(--font-space-grotesk); font-weight: 600; }
+
+.pill { font-size: 12px; padding: 6px 10px; background: #f3f4f6; color: var(--muted); border-radius: 8px; border: 1px solid rgba(15,23,42,0.06); font-weight: 500; }
+
+.divider-light { background: rgba(15,23,42,0.06); }
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .kicker { font-size: 10px; }
+  .pill { font-size: 11px; padding: 5px 8px; }
+}
+
+/* utility tweaks for layout */
+.max-w-6xl { max-width: 80rem; }
+

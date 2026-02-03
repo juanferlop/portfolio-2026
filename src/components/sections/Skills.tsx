@@ -1,23 +1,65 @@
 import { skills } from '@/data/skills';
+import * as Icons from 'lucide-react';
+
+const getIcon = (iconName: string) => {
+    const iconMap: Record<string, any> = {
+        Code2: Icons.Code2,
+        FileCode: Icons.FileCode,
+        Palette: Icons.Palette,
+        Wind: Icons.Wind,
+        Zap: Icons.Zap,
+        Type: Icons.Type,
+        Smartphone: Icons.Smartphone,
+        Code: Icons.Code,
+        Coffee: Icons.Coffee,
+        Database: Icons.Database,
+        BarChart3: Icons.BarChart3,
+        Trello: Icons.Trello,
+        GitBranch: Icons.GitBranch,
+    };
+    return iconMap[iconName] || Icons.Code2;
+};
 
 export const Skills = () => {
+    // Agrupar skills por categoría
+    const groupedSkills = skills.reduce((acc, skill) => {
+        if (!acc[skill.category]) acc[skill.category] = [];
+        acc[skill.category].push(skill);
+        return acc;
+    }, {} as Record<string, typeof skills>);
+
+    const categoryOrder = ['Frontend', 'Desarrollo Móvil', 'Desarrollo Web', 'Lenguajes', 'Herramientas'];
+
     return (
         <section id="tecnologias" className="py-20">
-            <h2 className="text-2xl font-bold mb-10 flex items-center gap-4">
+            <h2 className="text-2xl font-bold mb-12 flex items-center gap-4">
                 Stack Tecnológico
                 <div className="h-[1px] flex-1 bg-white/10"></div>
             </h2>
 
-            {/* Grid responsivo: 2 columnas en móvil, 4 en tablet, 6 en desktop */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {skills.map((skill) => (
-                    <div
-                        key={skill.name}
-                        className="group p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-300"
-                    >
-                        <p className="text-sm font-medium group-hover:text-blue-400 transition-colors">{skill.name}</p>
-                        <p className="text-[10px] text-gray-500 uppercase tracking-widest">{skill.category}</p>
-                    </div>
+            <div className="space-y-10">
+                {categoryOrder.map((category) => (
+                    groupedSkills[category] && (
+                        <div key={category}>
+                            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--primary)' }}>
+                                {category}
+                            </h3>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                {groupedSkills[category].map((skill) => {
+                                    const IconComponent = getIcon(skill.icon);
+                                    return (
+                                        <div
+                                            key={skill.name}
+                                            className="group p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-[var(--primary)]/10 hover:border-[var(--primary)]/50 transition-all duration-300 flex flex-col items-center gap-2"
+                                        >
+                                            <IconComponent size={24} className="group-hover:text-[var(--primary)] transition-colors" />
+                                            <p className="text-sm font-medium text-center group-hover:text-[var(--primary)] transition-colors">{skill.name}</p>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    )
                 ))}
             </div>
         </section>

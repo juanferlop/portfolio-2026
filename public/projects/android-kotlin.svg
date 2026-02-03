@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+    <defs>
+        <linearGradient id="ak" x1="0" x2="1">
+            <stop offset="0" stop-color="#8b5cf6" />
+            <stop offset="1" stop-color="#6366f1" />
+        </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="#ffffff" />
+    <rect x="60" y="80" width="1080" height="640" rx="14" fill="url(#ak)" opacity="0.10" />
+    <g fill="#0f1724" font-family="Inter, Arial, sans-serif">
+        <text x="100" y="180" font-size="48" font-weight="700">App Android</text>
+        <text x="100" y="240" font-size="20" fill="#475569">Kotlin + XML • SQLite • Patrones Android</text>
+        <rect x="100" y="320" width="1000" height="12" rx="6" fill="#8b5cf6" />
+    </g>
+</svg>
