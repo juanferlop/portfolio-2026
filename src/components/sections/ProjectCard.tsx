@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { Github, ExternalLink, Download } from 'lucide-react';
+import { Github, ExternalLink, Download, Users } from 'lucide-react';
+import styles from './ProjectCard.module.css';
 
 interface Project {
     title: string;
@@ -14,13 +15,14 @@ interface Project {
     demo?: string;
     download?: string;
     image?: string; // base path without extension, e.g. /projects/paycarbierzo
+    isTeam?: boolean; // Indica si es un proyecto en equipo
 }
 
 export const ProjectCard = ({ project }: { project: Project }) => {
     return (
         <article className="card overflow-hidden transform hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group">
             {project.demo?.includes("youtube") ? (
-                <div className="w-full relative" style={{ aspectRatio: "16/9" }}>
+                <div className={`w-full relative ${styles.aspectRatio16_9}`}>
                     <iframe
                         width="100%"
                         height="100%"
@@ -36,26 +38,41 @@ export const ProjectCard = ({ project }: { project: Project }) => {
                 <ImageBlock imageBase={project.image} title={project.title} />
             ) : null}
 
-            <div className="project-card-body" style={{ minHeight: 160 }}>
+            <div className={`project-card-body ${styles.projectCardBody}`}>
                 <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-base md:text-lg font-bold flex-1 group-hover:text-[var(--primary)] transition-colors">{project.title}</h3>
-                    {project.progress === 100 && (
-                        <span className="ml-2 px-2 py-1 text-xs font-semibold rounded bg-green-100 text-green-700">Completado</span>
-                    )}
+                    <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                            <h3 className="text-base md:text-lg font-bold group-hover:text-[var(--primary)] transition-colors">{project.title}</h3>
+                            <div className="flex items-center gap-2">
+                                {project.isTeam && (
+                                    <span title="Proyecto en equipo" className="flex items-center gap-1 px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded-full">
+                                        <Users size={14} />
+                                        Equipo
+                                    </span>
+                                )}
+                                {project.progress === 100 ? (
+                                    <span className="px-2 py-1 text-xs font-semibold rounded bg-green-100 text-green-700">Completado</span>
+                                ) : (
+                                    <span className="px-2 py-1 text-xs font-semibold rounded bg-yellow-100 text-yellow-700">En proceso</span>
+                                )}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <p className="text-sm mb-4 line-clamp-2" style={{ color: 'var(--muted)' }}>{project.description}</p>
+                <p className={`text-sm mb-4 line-clamp-none ${styles.projectCardDescription}`}>{project.description}</p>
 
                 {project.progress < 100 && (
                     <div className="mb-4">
-                        <div className="flex justify-between text-xs mb-1" style={{ color: 'var(--muted)' }}>
+                        <div className={`flex justify-between text-xs mb-1 ${styles.projectCardProgressLabel}`}>
                             <span>Progreso</span>
                             <span>{project.progress}%</span>
                         </div>
-                        <div className="w-full bg-gray-100 h-2 rounded-full overflow-hidden" style={{ background: 'rgba(15,23,42,0.04)' }}>
+                        <div className={`w-full bg-gray-100 h-2 rounded-full overflow-hidden ${styles.projectCardProgressBar}`}>
                             <div
-                                className="h-full"
-                                style={{ width: `${project.progress}%`, background: 'linear-gradient(90deg, var(--primary), var(--accent))' }}
+                                className={`h-full ${styles.projectCardProgressInner}`}
+                                data-progress={project.progress}
+                                style={{ width: `${project.progress}%` }}
                             />
                         </div>
                     </div>

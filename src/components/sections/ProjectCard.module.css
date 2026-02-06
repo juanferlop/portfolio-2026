@@ -1,0 +1,30 @@
+/* Estilos para ProjectCard */
+.aspectRatio16_9 {
+  aspect-ratio: 16/9;
+}
+
+.projectCardBody {
+  min-height: 200px;
+}
+
+.projectCardTitle {
+  color: var(--primary);
+}
+
+.projectCardDescription {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.projectCardProgressLabel {
+  color: var(--muted);
+}
+
+.projectCardProgressBar {
+  background: rgba(15,23,42,0.04);
+}
+
+.projectCardProgressInner {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.3s;
+}

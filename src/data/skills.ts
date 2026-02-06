@@ -12,16 +12,21 @@ export const skills = [
     { name: "Android", category: "Desarrollo Móvil", level: 80, icon: "Smartphone" },
     { name: "XML", category: "Desarrollo Móvil", level: 85, icon: "Code" },
 
-    // Backend / Persistencia
-    { name: "Java", category: "Backend / Persistencia", level: 90, icon: "Coffee" },
-    { name: "PHP", category: "Backend / Persistencia", level: 75, icon: "Code2" },
-    { name: "JDBC", category: "Bases de datos", level: 85, icon: "Database" },
-    { name: "JPA", category: "Bases de datos", level: 80, icon: "Database" },
+    // Backend
+    { name: "Java", category: "Backend", level: 90, icon: "Coffee" },
+    { name: "PHP", category: "Backend", level: 75, icon: "Code2" },
+
+    // Bases de datos
     { name: "SQL", category: "Bases de datos", level: 90, icon: "Database" },
     { name: "PL/SQL", category: "Bases de datos", level: 80, icon: "Database" },
     { name: "Neo4j", category: "Bases de datos", level: 75, icon: "Database" },
+    { name: "JDBC", category: "Bases de datos", level: 85, icon: "Database" },
+    { name: "JPA", category: "Bases de datos", level: 80, icon: "Database" },
 
     // Lenguajes de Programación
+    { name: "Java", category: "Lenguajes", level: 90, icon: "Coffee" },
+    { name: "XML", category: "Lenguajes", level: 85, icon: "Code" },
+    { name: "PHP", category: "Lenguajes", level: 75, icon: "Code2" },
     { name: "Python", category: "Lenguajes", level: 75, icon: "Code2" },
     { name: "C", category: "Lenguajes", level: 70, icon: "Code2" },
     { name: "C++", category: "Lenguajes", level: 70, icon: "Code2" },

@@ -112,3 +112,10 @@ h1, h2, h3, h4, h5, h6 {
 /* utility tweaks for layout */
 .max-w-6xl { max-width: 80rem; }
 
+/* Ocultar botón flotante Next.js Dev Tools */
+#next-logo[data-next-mark="true"],
+[data-nextjs-dev-tools-button],
+#nextjs-dev-tools-menu {
+  display: none !important;
+}
+
