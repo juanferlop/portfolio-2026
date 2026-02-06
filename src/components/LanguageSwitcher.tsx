@@ -8,7 +8,7 @@ const flags = {
     en: "/projects/flag-en.png",
 };
 
-export function LanguageSwitcher({ locale, setLocale }: { locale: string; setLocale: (l: string) => void }) {
+export function LanguageSwitcher({ locale, setLocale }: { locale: "es" | "en"; setLocale: (l: "es" | "en") => void }) {
     const [open, setOpen] = useState(false);
     return (
         <div className="relative">
@@ -17,7 +17,7 @@ export function LanguageSwitcher({ locale, setLocale }: { locale: string; setLoc
                 onClick={() => setOpen((v) => !v)}
                 aria-label="Select language"
             >
-                <Image src={flags[locale]} alt={locale} width={20} height={14} />
+                <Image src={flags[locale as keyof typeof flags]} alt={locale} width={20} height={14} />
                 <span className="capitalize">{locale}</span>
                 <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M6 8L10 12L14 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
@@ -27,7 +27,7 @@ export function LanguageSwitcher({ locale, setLocale }: { locale: string; setLoc
                         <button
                             key={key}
                             className="flex items-center gap-2 w-full px-3 py-2 hover:bg-gray-100 text-left"
-                            onClick={() => { setLocale(key); setOpen(false); }}
+                            onClick={() => { setLocale(key as "es" | "en"); setOpen(false); }}
                         >
                             <Image src={flag} alt={key} width={20} height={14} />
                             <span className="capitalize">{key}</span>

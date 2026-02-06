@@ -32,14 +32,11 @@ export const About = () => {
             {/* Contacto directo */}
             <div className="mt-8 p-6 md:p-8 rounded-xl" style={{ background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
                 <p className="text-sm md:text-base mb-4">
-                    Actualmente busco unas prácticas de verano en 2026 para iniciar mi carrera profesional.
+                    Estoy buscando una oportunidad para realizar prácticas profesionales durante el verano de 2026, donde pueda aportar mis conocimientos, aprender de un gran equipo y comenzar mi carrera con entusiasmo y dedicación.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                     <a href="mailto:juanfernandezlopez729@gmail.com" className="px-4 py-2 btn-primary rounded-full text-sm font-semibold hover:scale-105 transition-transform">
                         juanfernandezlopez729@gmail.com
-                    </a>
-                    <a href="tel:+34672647033" className="px-4 py-2 border rounded-full text-sm font-semibold hover:bg-gray-50 transition-colors" style={{ color: 'var(--fg)', borderColor: 'rgba(15,23,42,0.1)' }}>
-                        +34 672 647 033
                     </a>
                 </div>
             </div>

@@ -44,5 +44,19 @@ export const projects = [
         image: "/projects/jdbc-jpa-code",
         progress: 100,
         stack: ["Java", "JDBC", "Hibernate", "MySQL", "ORM", "XML"]
+    },
+    {
+        title: "Robótica y Arduino",
+        description: "Colección de miniproyectos de robótica programando un Arduino UNO. Resolución de retos con LEDs, sensores, actuadores lineales y robots móviles. Conexión del robot mediante Ethernet y desarrollo de software para controlar y monitorizar el hardware. Además, diseño de una pieza 3D personalizada con OpenSCAD, lista para impresión 3D (ver imagen y videos).",
+        github: "https://github.com/uo296143/Arduino.git",
+        image: "/projects/3D",
+        videos: [
+            "https://youtube.com/shorts/4jgPax4IVlk",
+            "https://youtube.com/shorts/kdpUjNGXUY8",
+            "https://youtube.com/shorts/H-qdX2gOfDY"
+        ],
+        youtubePlaylist: "https://www.youtube.com/@juanferlop/shorts",
+        progress: 100,
+        stack: ["C++", "Arduino"]
     }
 ];

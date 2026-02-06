@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Linkedin, Github } from "lucide-react";
+import { Linkedin, Github, Mail, Phone } from "lucide-react";
 import { useState } from "react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { messages } from "@/i18n/messages";
@@ -14,19 +14,23 @@ export const Navbar = () => {
     return (
         <nav className="fixed top-0 w-full z-50 border-b bg-white/60 backdrop-blur-sm">
             <div className="max-w-6xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-                <div className="flex items-center gap-2 md:gap-4">
-                    <Image
-                        src="/projects/logo-JFL.png"
-                        alt="Logo JFL"
-                        width={32}
-                        height={32}
-                        className="rounded-full bg-white border border-gray-200 shadow-sm"
-                    />
-                    <span className="font-extrabold text-sm md:text-lg tracking-tight text-foreground hidden sm:inline">
-                        Juan Fernández López
-                    </span>
-                    <span className="font-extrabold text-sm md:text-lg tracking-tight text-foreground sm:hidden">JF</span>
-                    <span className="hidden md:inline-block kicker">Oviedo · Ponferrada</span>
+                <div className="flex items-center gap-4 md:gap-6">
+                    <Link href="#top" scroll={true} className="flex items-center gap-2 md:gap-3">
+                        <Image
+                            src="/projects/logo-JFL.png"
+                            alt="Logo JFL"
+                            width={32}
+                            height={32}
+                            className="rounded-full bg-white border border-gray-200 shadow-sm cursor-pointer"
+                        />
+                        <div className="flex flex-col justify-center">
+                            <span className="font-extrabold text-sm md:text-lg tracking-tight text-foreground hidden sm:inline">
+                                Juan Fernández López
+                            </span>
+                            <span className="font-extrabold text-sm md:text-lg tracking-tight text-foreground sm:hidden">JF</span>
+                            <span className="hidden md:inline-block kicker text-xs md:text-sm text-gray-500">Oviedo · Ponferrada</span>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className="hidden md:flex gap-6 text-sm font-medium" style={{ color: "var(--muted)" }}>
@@ -45,6 +49,13 @@ export const Navbar = () => {
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-4">
+                    <a
+                        href="mailto:juanfernandezlopez729@gmail.com"
+                        className="hidden sm:flex p-2 text-gray-600 hover:text-[var(--primary)] transition-colors"
+                        title="Email"
+                    >
+                        <Mail size={20} />
+                    </a>
                     <a
                         href="https://github.com/uo296143"
                         target="_blank"
