@@ -3,6 +3,7 @@ export const messages = {
         navbar: {
             home: "Inicio",
             about: "Sobre mí",
+            experience: "Experiencia",
             projects: "Proyectos",
             skills: "Habilidades",
             contact: "Contacto",
@@ -76,6 +77,7 @@ export const messages = {
         navbar: {
             home: "Home",
             about: "About",
+            experience: "Experience",
             projects: "Projects",
             skills: "Skills",
             contact: "Contact",
