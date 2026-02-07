@@ -17,6 +17,8 @@ interface Project {
     download?: string;
     image?: string; // base path without extension, e.g. /projects/paycarbierzo
     isTeam?: boolean; // Indica si es un proyecto en equipo
+    isAutonomous?: boolean;
+    isSchool?: boolean;
 }
 
 export const ProjectCard = ({ project }: { project: Project & { videos?: string[] } }) => {

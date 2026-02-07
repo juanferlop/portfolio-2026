@@ -28,27 +28,35 @@ import { useLocale } from '@/context/LocaleContext';
 export const Skills = () => {
     const { locale } = useLocale();
     const t = useTranslations(locale);
-    const sk = messages[locale].skills;
+    const sk = messages[locale].skills as Record<string, string>;
     const groupedSkills = skills.reduce((acc, skill) => {
         if (!acc[skill.category]) acc[skill.category] = [];
         acc[skill.category].push(skill);
         return acc;
     }, {} as Record<string, typeof skills>);
 
-    const categoryOrder = ['Frontend', 'Desarrollo Móvil', 'Desarrollo Web', 'Bases de datos', 'Lenguajes', 'Herramientas'];
+    // Map display names to translation keys
+    const categoryOrder = [
+        { display: 'Frontend', key: 'frontend' },
+        { display: 'Desarrollo Móvil', key: 'mobile' },
+        { display: 'Desarrollo Web', key: 'web' },
+        { display: 'Bases de datos', key: 'db' },
+        { display: 'Lenguajes', key: 'languages' },
+        { display: 'Herramientas', key: 'tools' }
+    ];
 
     return (
         <section id="tecnologias" className="py-20">
             <h2 className="text-2xl font-bold mb-12 flex items-center gap-4" style={{ color: 'var(--fg)' }}>{sk.stack}</h2>
             <div className="space-y-10">
-                {categoryOrder.map((category) => (
-                    groupedSkills[category] && (
-                        <div key={category}>
+                {categoryOrder.map(({ display, key }) => (
+                    groupedSkills[display] && (
+                        <div key={display}>
                             <h3 className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--fg)' }}>
-                                {sk[category.toLowerCase()] || category}
+                                {sk[key] || display}
                             </h3>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                                {groupedSkills[category].map((skill) => {
+                                {groupedSkills[display].map((skill) => {
                                     const IconComponent = getIcon(skill.icon);
                                     return (
                                         <div
