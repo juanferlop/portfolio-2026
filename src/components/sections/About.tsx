@@ -35,8 +35,8 @@ export const About = () => {
             </div>
 
             {/* Contacto directo */}
-            <div className="mt-8 p-6 md:p-8 rounded-xl bg-blue-50 border border-blue-100">
-                <p className="text-sm md:text-base mb-4">
+            <div className="mt-8 p-6 md:p-8 rounded-xl bg-gray-800">
+                <p className="text-sm md:text-base mb-4 text-white">
                     {t('about.looking')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
