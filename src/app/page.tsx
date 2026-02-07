@@ -1,3 +1,4 @@
+"use client"
 import { Navbar } from '@/components/Navbar';
 import { ProjectCard } from '@/components/sections/ProjectCard';
 import { Skills } from '@/components/sections/Skills';
@@ -7,18 +8,21 @@ import ImageCarousel from '@/components/ImageCarousel';
 import { projects } from '@/data/projects';
 import { FileDown, Smartphone } from 'lucide-react';
 import Image from 'next/image';
+import { LocaleProvider, useLocale } from '@/context/LocaleContext';
+import { useTranslations } from '@/i18n/useTranslations';
 
-export const metadata = {
-  title: 'Juan Fernández López | Software',
-  description: 'Portfolio de Juan Fernández López, especializado en Java y Programación Orientada a Objetos. Disponible para prácticas profesionales en verano 2026. Experiencia en desarrollo multiplataforma y frontend.',
-  icons: {
-    icon: '/projects/logo-JFL.png',
-    shortcut: '/projects/logo-JFL.png',
-    apple: '/projects/logo-JFL.png',
-  },
-};
+export default function HomePageWithLocaleProvider() {
+  return (
+    <LocaleProvider>
+      <Home />
+    </LocaleProvider>
+  );
+}
 
-export default function Home() {
+function Home() {
+  const { locale, setLocale } = useLocale();
+  const t = useTranslations(locale);
+
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -29,9 +33,15 @@ export default function Home() {
         <section id="sobre-mi" className="mb-16 md:mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
             <div className="max-w-2xl">
-              <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Estudiante de Ingeniería del Software</h1>
+              <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
+                {locale === "es"
+                  ? "Estudiante de Ingeniería del Software"
+                  : "Software Engineering Student"}
+              </h1>
               <p className="muted text-base md:text-lg leading-relaxed mb-4 md:mb-2">
-                Hola, soy Juan, tengo 21 años,natural de Ponferrada (El Bierzo) aunque actualmente resido en Oviedo, donde curso el penúltimo año de Ingeniería Informática del Software. Este verano quiero realizar unas prácticas para incorporarme al mundo empresarial y aplicar mis conocimientos en proyectos reales. Me considero una persona motivada, con ganas de aprender y aportar valor desde el primer día. Además de la ingeniería, me apasionan la historia y el deporte.
+                {locale === "es"
+                  ? "Hola, soy Juan, tengo 21 años,natural de Ponferrada (El Bierzo) aunque actualmente resido en Oviedo, donde curso el penúltimo año de Ingeniería Informática del Software. Este verano quiero realizar unas prácticas para incorporarme al mundo empresarial y aplicar mis conocimientos en proyectos reales. Me considero una persona motivada, con ganas de aprender y aportar valor desde el primer día. Además de la ingeniería, me apasionan la historia y el deporte."
+                  : "Hi, I'm Juan, 21 years old, from Ponferrada (El Bierzo) but currently living in Oviedo, where I'm in my penultimate year of Software Engineering. This summer I want to do an internship to join the business world and apply my knowledge to real projects. I consider myself a motivated person, eager to learn and contribute from day one. Besides engineering, I'm passionate about history and sports."}
               </p>
 
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs mb-4 md:mb-6">
@@ -39,15 +49,17 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                Disponible para prácticas Verano 2026
+                {locale === "es" ? "Disponible para prácticas Verano 2026" : "Available for internship Summer 2026"}
               </div>
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                 <a href="/CV_Juan_Fernandez_Lopez.pdf" download="CV_Juan_Fernandez_Lopez.pdf" className="flex items-center justify-center gap-2 px-6 py-3 btn-primary rounded-full font-semibold hover:scale-105 transition-transform">
-                  <FileDown size={18} /> Descargar CV
+                  <FileDown size={18} />
+                  {locale === "es" ? "Descargar CV" : "Download CV"}
                 </a>
                 <a href="#proyectos" className="flex items-center justify-center gap-2 px-6 py-3 border rounded-full font-semibold" style={{ color: 'var(--fg)', borderColor: 'rgba(15,23,42,0.1)' }}>
-                  <Smartphone size={18} /> Ver Proyectos
+                  <Smartphone size={18} />
+                  {locale === "es" ? "Ver Proyectos" : "See Projects"}
                 </a>
               </div>
             </div>
@@ -56,7 +68,7 @@ export default function Home() {
               <div className="w-full max-w-md lg:max-w-lg card overflow-hidden rounded-xl" style={{ aspectRatio: '16/10' }}>
                 <ImageCarousel
                   images={['/hero.jpg', '/hero-city.jpg']}
-                  alt="Galería - Construyendo productos"
+                  alt={locale === "es" ? "Galería - Construyendo productos" : "Gallery - Building products"}
                 />
               </div>
             </div>
@@ -68,7 +80,7 @@ export default function Home() {
 
         <section id="proyectos" className="mb-16 md:mb-20">
           <h2 className="text-xl md:text-2xl font-bold mb-8 md:mb-10 flex items-center gap-4">
-            Proyectos Destacados
+            {locale === "es" ? "Proyectos Destacados" : "Featured Projects"}
             <div className="h-[1px] flex-1 divider-light"></div>
           </h2>
 
@@ -99,3 +111,4 @@ export default function Home() {
     </main>
   );
 }
+

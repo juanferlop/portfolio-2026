@@ -1,6 +1,8 @@
 import { skills } from '@/data/skills';
 import * as Icons from 'lucide-react';
 
+import { useTranslations } from '../../i18n/useTranslations';
+import { messages } from '../../i18n/messages';
 const getIcon = (iconName: string) => {
     const iconMap: Record<string, any> = {
         Code2: Icons.Code2,
@@ -21,8 +23,12 @@ const getIcon = (iconName: string) => {
     return iconMap[iconName] || Icons.Code2;
 };
 
+import { useLocale } from '@/context/LocaleContext';
+
 export const Skills = () => {
-    // Agrupar skills por categoría
+    const { locale } = useLocale();
+    const t = useTranslations(locale);
+    const sk = messages[locale].skills;
     const groupedSkills = skills.reduce((acc, skill) => {
         if (!acc[skill.category]) acc[skill.category] = [];
         acc[skill.category].push(skill);
@@ -33,17 +39,13 @@ export const Skills = () => {
 
     return (
         <section id="tecnologias" className="py-20">
-            <h2 className="text-2xl font-bold mb-12 flex items-center gap-4">
-                Stack Tecnológico
-                <div className="h-[1px] flex-1 bg-white/10"></div>
-            </h2>
-
+            <h2 className="text-2xl font-bold mb-12 flex items-center gap-4" style={{ color: 'var(--fg)' }}>{sk.stack}</h2>
             <div className="space-y-10">
                 {categoryOrder.map((category) => (
                     groupedSkills[category] && (
                         <div key={category}>
-                            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--primary)' }}>
-                                {category}
+                            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--fg)' }}>
+                                {sk[category.toLowerCase()] || category}
                             </h3>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                                 {groupedSkills[category].map((skill) => {

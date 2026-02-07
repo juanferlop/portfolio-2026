@@ -1,7 +1,6 @@
 export const projects = [
     {
-        title: "Game Web Application",
-        description: "Aplicación web desarrollada en equipo para jugar al juego Y contra la máquina. Frontend en TypeScript/Node.js con arquitectura de microservicios. Backend en Rust con lógica de IA para jugar contra el usuario. Proyecto colaborativo que integra tecnologías modernas y patrones de diseño escalables.",
+        id: "yovi",
         github: "https://github.com/Arquisoft/yovi_es3c.git",
         deploy: "",
         image: "/projects/y",
@@ -10,53 +9,57 @@ export const projects = [
         stack: ["TypeScript", "Node.js", "Rust", "Microservicios", "Web"]
     },
     {
-        title: "PayCarbierzo",
-        description: "Sitio web empresarial responsivo con diseño optimizado para SEO. Desarrollo de landing page profesional con HTML5, CSS3 (incluido Tailwind CSS) y JavaScript vanilla. Enfoque en UX/UI, rendimiento y estándares web.",
+        id: "paycarbierzo",
         github: "https://github.com/juanferlop/paycarbierzo_paginaweb",
         deploy: "https://paycarbierzo.es",
         image: "/projects/paycar",
         progress: 100,
-        stack: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Responsive"]
+        stack: ["HTML5", "CSS3", "Tailwind CSS", "JavaScript", "Responsive"],
+        isAutonomous: true
     },
     {
-        title: "App Android - Kotlin",
-        description: "Aplicación nativa para Android desarrollada en equipo utilizando Kotlin e interfaces XML. Implementación de patrones arquitectónicos (MVVM, Inyección de dependencias) y persistencia de datos con Firebase de Google. Experiencia en ciclo de vida de Android, manejo de permisos y buenas prácticas de desarrollo mobile. Uso de IA para generar preguntas y respuestas a apartir de los datos de la API de Wikipedia.",
+        id: "androidkotlin",
         github: "https://github.com/HovanRojasIgnacio/AndroidDevelopers",
-        demo: "https://www.youtube.com/embed/ChaHH2p_RBg",
-        image: "/projects/android-kotlin",
+        demo: "https://youtube.com/shorts/ChaHH2p_RBg",
+        videos: ["https://youtube.com/shorts/ChaHH2p_RBg"],
         progress: 100,
         isTeam: true,
+        isSchool: true,
         stack: ["Kotlin", "XML", "Android", "Firebase", "MVVM"]
     },
     {
-        title: "MotoGP Web",
-        description: "Aplicación web fullstack con PHP backend y frontend HTML/CSS/JavaScript. Sistema de gestión de datos de MotoGP con interfaz interactiva. Cumplimiento de estándares W3C y buenas prácticas de código limpio. Proyecto que demuestra habilidades fullstack y atención al detalle en validación y usabilidad.",
+        id: "motogp",
         github: "https://github.com/uo296143/MotoGP-Desktop",
         deploy: "https://uo296143.github.io/MotoGP-Desktop",
         image: "/projects/moto-gp",
         progress: 100,
+        isSchool: true,
         stack: ["HTML5", "CSS3", "JavaScript", "PHP", "Web"]
     },
     {
-        title: "Gestión JDBC/JPA",
-        description: "Sistema de gestión de datos implementando patrones DAO con Java. Simulación de un taller de mecánica con persistencia en HsqlServer usando tanto JDBC nativo como Hibernate ORM. Demostración de conocimiento en capas de acceso a datos, transacciones y manejo de relaciones en bases de datos relacionales.",
+        id: "jdbcjpa",
         github: "https://github.com/uo296143/RI-JDBC",
         image: "/projects/jdbc-jpa-code",
         progress: 100,
+        isSchool: true,
         stack: ["Java", "JDBC", "Hibernate", "MySQL", "ORM", "XML"]
     },
     {
-        title: "Robótica y Arduino",
-        description: "Colección de miniproyectos de robótica programando un Arduino UNO. Resolución de retos con LEDs, sensores, actuadores lineales y robots móviles. Conexión del robot mediante Ethernet y desarrollo de software para controlar y monitorizar el hardware. Además, diseño de una pieza 3D personalizada con OpenSCAD, lista para impresión 3D (ver imagen y videos).",
+        id: "robotica",
         github: "https://github.com/uo296143/Arduino.git",
         image: "/projects/3D",
         videos: [
-            "https://youtube.com/shorts/4jgPax4IVlk",
+            "https://youtube.com/shorts/fFP8AnuUcgQ",
+            "https://youtu.be/WeBClEfG80U",
             "https://youtube.com/shorts/kdpUjNGXUY8",
-            "https://youtube.com/shorts/H-qdX2gOfDY"
+            "https://youtube.com/shorts/H-qdX2gOfDY",
+            "https://youtube.com/shorts/E_95IxBV7gs",
+            "https://youtu.be/N7KJYVBNMsA"
         ],
         youtubePlaylist: "https://www.youtube.com/@juanferlop/shorts",
         progress: 100,
+        isTeam: true,
+        isSchool: true,
         stack: ["C++", "Arduino"]
     }
 ];
