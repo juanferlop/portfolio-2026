@@ -101,7 +101,7 @@ export const Navbar = () => {
                     >
                         {t.cv}
                     </a>
-                    <LanguageSwitcher locale={locale} setLocale={setLocale} />
+                    <LanguageSwitcher />
                 </div>
                 <div className="hidden md:flex items-center gap-3">
                 </div>
