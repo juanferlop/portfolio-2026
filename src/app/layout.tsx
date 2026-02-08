@@ -13,18 +13,23 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Juan Fernández López - Developer Java & POO | Portfolio Profesional",
+  title: "Juan - Software Developer ",
   description: "Portfolio profesional de Juan Fernández López. Especializado en Java, Programación Orientada a Objetos y desarrollo multiplataforma. Disponible para prácticas verano 2026.",
   keywords: ["Java", "POO", "Desarrollo", "Frontend", "Mobile", "Oviedo", "Prácticas 2026", "Ingeniero Informático"],
   authors: [{ name: "Juan Fernández López" }],
   creator: "Juan Fernández López",
   metadataBase: new URL("https://juanferlop.dev"),
+  icons: {
+    icon: "/logo-JFL.png",
+    shortcut: "/logo-JFL.png",
+    apple: "/logo-JFL.png",
+  },
   openGraph: {
     type: "website",
     locale: "es_ES",
     url: "https://juanferlop.dev",
     siteName: "Juan Fernández López - Developer",
-    title: "Juan Fernández López - Developer Java & POO",
+    title: "Juan - Software Developer ",
     description: "Especializado en Java y Programación Orientada a Objetos. Disponible para prácticas profesionales.",
     images: [
       {
@@ -41,14 +46,6 @@ export const metadata: Metadata = {
     description: "Portfolio profesional - Especializado en Java, POO y desarrollo multiplataforma",
     images: ["/og-image.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-  },
-  verification: {
-    google: "google-site-verification-code",
-  },
 };
 
 export default function RootLayout({
@@ -60,11 +57,13 @@ export default function RootLayout({
     <html lang="es">
       <head>
         <link rel="canonical" href="https://juanferlop.dev" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charSet="utf-8" />
-        <link rel="icon" href="/projects/logo-JFL.png" type="image/png" />
-        <link rel="shortcut icon" href="/projects/logo-JFL.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/projects/logo-JFL.png" />
+        <link rel="icon" href="/logo-JFL.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/logo-JFL.png" type="image/png" sizes="64x64" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/logo-JFL.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/logo-JFL.png" sizes="180x180" />
+        <link rel="shortcut icon" href="/logo-JFL.png" type="image/png" />
+        <meta name="theme-color" content="#ffffff" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

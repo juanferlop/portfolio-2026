@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { messages } from "@/i18n/messages";
 
@@ -13,8 +13,23 @@ import { useLocale } from '@/context/LocaleContext';
 export function LanguageSwitcher() {
     const { locale, setLocale } = useLocale();
     const [open, setOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (!open) return;
+        function handleClickOutside(event: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [open]);
+
     return (
-        <div className="relative">
+        <div className="relative" ref={dropdownRef}>
             <button
                 className="flex items-center gap-2 px-2 py-1 rounded border border-gray-200"
                 style={{ background: 'var(--surface)', color: 'var(--fg)' }}
